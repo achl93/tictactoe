@@ -71,26 +71,65 @@ namespace tictactoe
 
             // win horizontally
             if ((A1.Text == A2.Text) && (A2.Text == A3.Text) && (!A1.Enabled))
+            {
                 gameWon = true;
-                
+                A1.BackColor = System.Drawing.Color.Red;
+                A2.BackColor = System.Drawing.Color.Red;
+                A3.BackColor = System.Drawing.Color.Red;
+            }
             else if ((B1.Text == B2.Text) && (B2.Text == B3.Text) && (!B1.Enabled))
+            {
                 gameWon = true;
+                B1.BackColor = System.Drawing.Color.Red;
+                B2.BackColor = System.Drawing.Color.Red;
+                B3.BackColor = System.Drawing.Color.Red;
+            }
             else if ((C1.Text == C2.Text) && (C2.Text == C3.Text) && (!C1.Enabled))
+            {
                 gameWon = true;
+                C1.BackColor = System.Drawing.Color.Red;
+                C2.BackColor = System.Drawing.Color.Red;
+                C3.BackColor = System.Drawing.Color.Red;
+            }
 
             // win vertically
             else if ((A1.Text == B1.Text) && (B1.Text == C1.Text) && (!A1.Enabled))
+            {
                 gameWon = true;
+                A1.BackColor = System.Drawing.Color.Red;
+                B1.BackColor = System.Drawing.Color.Red;
+                C1.BackColor = System.Drawing.Color.Red;
+            }
             else if ((A2.Text == B2.Text) && (B2.Text == C2.Text) && (!A2.Enabled))
+            {
                 gameWon = true;
+                A2.BackColor = System.Drawing.Color.Red;
+                B2.BackColor = System.Drawing.Color.Red;
+                C2.BackColor = System.Drawing.Color.Red;
+            }
             else if ((A3.Text == B3.Text) && (B3.Text == C3.Text) && (!A3.Enabled))
+            {
                 gameWon = true;
+                A3.BackColor = System.Drawing.Color.Red;
+                B3.BackColor = System.Drawing.Color.Red;
+                C3.BackColor = System.Drawing.Color.Red;
+            }
 
             // win diagonally
             else if ((A1.Text == B2.Text) && (B2.Text == C3.Text) && (!A1.Enabled))
+            {
                 gameWon = true;
+                A1.BackColor = System.Drawing.Color.Red;
+                B2.BackColor = System.Drawing.Color.Red;
+                C3.BackColor = System.Drawing.Color.Red;
+            }
             else if ((A3.Text == B2.Text) && (B2.Text == C1.Text) && (!A3.Enabled))
+            {
                 gameWon = true;
+                A3.BackColor = System.Drawing.Color.Red;
+                B2.BackColor = System.Drawing.Color.Red;
+                C1.BackColor = System.Drawing.Color.Red;
+            }
 
             // displays winner if there is one
             if (gameWon)
@@ -105,7 +144,7 @@ namespace tictactoe
                 MessageBox.Show("The winner is " + winner, "Game over");
             }
 
-            else if (!gameWon && turnCount >= 9)
+            else if (!gameWon && turnCount == 9)
                 MessageBox.Show("Draw!", "Game over");
         }
 
@@ -132,6 +171,7 @@ namespace tictactoe
                     Button b = (Button)c;
                     b.Enabled = true;
                     b.Text = "";
+                    b.BackColor = System.Drawing.Color.White;
                 }
             }
         }
