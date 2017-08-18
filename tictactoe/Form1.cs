@@ -26,7 +26,7 @@ namespace tictactoe
 
         private void helpToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            // 
         }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -67,76 +67,74 @@ namespace tictactoe
         private void checkForWinner()
         {
             bool gameWon = false;
-            string winner = "Draw";
+            string winner = "";
 
             // win horizontally
             if ((A1.Text == A2.Text) && (A2.Text == A3.Text) && (!A1.Enabled))
             {
                 gameWon = true;
-                A1.BackColor = System.Drawing.Color.Red;
-                A2.BackColor = System.Drawing.Color.Red;
-                A3.BackColor = System.Drawing.Color.Red;
+                A1.BackColor = System.Drawing.Color.Green;
+                A2.BackColor = System.Drawing.Color.Green;
+                A3.BackColor = System.Drawing.Color.Green;
             }
             else if ((B1.Text == B2.Text) && (B2.Text == B3.Text) && (!B1.Enabled))
             {
                 gameWon = true;
-                B1.BackColor = System.Drawing.Color.Red;
-                B2.BackColor = System.Drawing.Color.Red;
-                B3.BackColor = System.Drawing.Color.Red;
+                B1.BackColor = System.Drawing.Color.Green;
+                B2.BackColor = System.Drawing.Color.Green;
+                B3.BackColor = System.Drawing.Color.Green;
             }
             else if ((C1.Text == C2.Text) && (C2.Text == C3.Text) && (!C1.Enabled))
             {
                 gameWon = true;
-                C1.BackColor = System.Drawing.Color.Red;
-                C2.BackColor = System.Drawing.Color.Red;
-                C3.BackColor = System.Drawing.Color.Red;
+                C1.BackColor = System.Drawing.Color.Green;
+                C2.BackColor = System.Drawing.Color.Green;
+                C3.BackColor = System.Drawing.Color.Green;
             }
 
             // win vertically
             else if ((A1.Text == B1.Text) && (B1.Text == C1.Text) && (!A1.Enabled))
             {
                 gameWon = true;
-                A1.BackColor = System.Drawing.Color.Red;
-                B1.BackColor = System.Drawing.Color.Red;
-                C1.BackColor = System.Drawing.Color.Red;
+                A1.BackColor = System.Drawing.Color.Green;
+                B1.BackColor = System.Drawing.Color.Green;
+                C1.BackColor = System.Drawing.Color.Green;
             }
             else if ((A2.Text == B2.Text) && (B2.Text == C2.Text) && (!A2.Enabled))
             {
                 gameWon = true;
-                A2.BackColor = System.Drawing.Color.Red;
-                B2.BackColor = System.Drawing.Color.Red;
-                C2.BackColor = System.Drawing.Color.Red;
+                A2.BackColor = System.Drawing.Color.Green;
+                B2.BackColor = System.Drawing.Color.Green;
+                C2.BackColor = System.Drawing.Color.Green;
             }
             else if ((A3.Text == B3.Text) && (B3.Text == C3.Text) && (!A3.Enabled))
             {
                 gameWon = true;
-                A3.BackColor = System.Drawing.Color.Red;
-                B3.BackColor = System.Drawing.Color.Red;
-                C3.BackColor = System.Drawing.Color.Red;
+                A3.BackColor = System.Drawing.Color.Green;
+                B3.BackColor = System.Drawing.Color.Green;
+                C3.BackColor = System.Drawing.Color.Green;
             }
 
             // win diagonally
             else if ((A1.Text == B2.Text) && (B2.Text == C3.Text) && (!A1.Enabled))
             {
                 gameWon = true;
-                A1.BackColor = System.Drawing.Color.Red;
-                B2.BackColor = System.Drawing.Color.Red;
-                C3.BackColor = System.Drawing.Color.Red;
+                A1.BackColor = System.Drawing.Color.Green;
+                B2.BackColor = System.Drawing.Color.Green;
+                C3.BackColor = System.Drawing.Color.Green;
             }
             else if ((A3.Text == B2.Text) && (B2.Text == C1.Text) && (!A3.Enabled))
             {
                 gameWon = true;
-                A3.BackColor = System.Drawing.Color.Red;
-                B2.BackColor = System.Drawing.Color.Red;
-                C1.BackColor = System.Drawing.Color.Red;
+                A3.BackColor = System.Drawing.Color.Green;
+                B2.BackColor = System.Drawing.Color.Green;
+                C1.BackColor = System.Drawing.Color.Green;
             }
 
             // displays winner if there is one
             if (gameWon)
             {
                 disableAllButtons();
-                //Pen pen = new Pen(Color.FromArgb(alpha: 255, red: 0, green: 0, blue: 0));
-                //e.Graphics.DrawLine(pen, 1, 1, 1, 1);
                 if (turn)
                     winner = "O";
                 else
@@ -166,6 +164,7 @@ namespace tictactoe
             turnCount = 0;
             foreach (Control c in Controls)
             {
+                // only select a control if it is of type button
                 if (c.GetType().Equals(button))
                 {
                     Button b = (Button)c;
